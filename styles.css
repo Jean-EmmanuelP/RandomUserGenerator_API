@@ -310,6 +310,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .label {
@@ -498,4 +499,73 @@ button:hover {
 
 .user-card {
   animation: fadeIn 0.5s ease-out;
+}
+
+@media screen and (max-width:1200px) {
+  h1 {
+    font-size: 18px;
+  }
+  .loading_users button {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width:900px) {
+  h1 {
+    font-size: 10px;
+  }
+  .logo {
+    z-index: 0;
+    opacity: 0.2;
+  }
+  input {
+    height: 30px;
+    font-size: 14px;
+  }
+  .eng, .fr {
+    top: -5px;
+    left: 20px;
+    width: 10px;
+    height: 13px;
+  }
+
+  .info {
+    display: none;
+  }
+
+  .filter {
+    display: none;
+  }
+
+  .fr {
+    left: 40px;
+  }
+  .emojis {
+    width: 100%;
+    height: 80px;
+    overflow: auto;
+    flex-wrap: wrap;
+  }
+
+  .imgbox {
+    width: 80px;
+    height: 80px;
+  }
+
+  .name {
+    font-size: 11px;
+  }
+
+  .delete_button {
+    top: 5px;
+    border-radius: 50px;
+    height: 20px;
+    width: 130px;
+    font-size: 10px;
+  }
+
+  .imgbox img {
+    width: 100%;
+    height: 100%;
+  }
 }
