@@ -61,6 +61,10 @@ function displayUsers(newUsers) {
   usersContainer.innerHTML = "";
   allUsers.forEach((user, index) => {
     const userDiv = document.createElement("div");
+    if (!userDiv) {
+      console.error("Failed to create a div element for the user card.");
+      return;
+    }
     userDiv.className = "user-card";
     userDiv.id = `user-${index}`;
     userDiv.innerHTML = `
@@ -89,15 +93,20 @@ function displayUsers(newUsers) {
         </div>
         <button class="delete_button" onclick="deleteUserCard('user-${index}')">Delete this user</button>
       `;
-    userDiv.setAttribute("data-gender", user.gender);
-    userDiv.setAttribute("data-nationality", user.nat);
+    if (userDiv) {
+      userDiv.setAttribute("data-gender", user.gender || "unknown");
+      userDiv.setAttribute("data-nationality", user.nat || "unknown");
+    }
     if (newUsers.find((u) => u.id === user.id)) {
       userDiv.style.animation = "fadeIn 0.5s ease-out";
     }
 
     usersContainer.appendChild(userDiv);
   });
-
+  if (!Array.isArray(allUsers)) {
+    console.error("Invalid input: allUsers is not an array.");
+    return;
+  }
   allUsers.forEach((user, index) => {
     const nameLabel = document
       .getElementById(`name-${index}`)
@@ -220,9 +229,16 @@ function applyFilters() {
 }
 
 function deleteUserCard(cardId) {
-  const card = document.getElementById(cardId);
-  card.remove();
-  updateUserCounts();
+  try {
+    const card = document.getElementById(cardId);
+    if (!card) {
+      console.error("Card not found: ", cardId);
+      return;
+    }
+    card.remove();
+  } catch (error) {
+    console.error("Error in deleteUserCard: ", error);
+  }
 }
 
 function clearUsers() {
