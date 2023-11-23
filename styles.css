@@ -14,9 +14,8 @@ body {
 .logo {
   position: absolute;
   z-index: 4;
-  top: 5px;
-  left: -30px;
-  transform: rotate(90deg);
+  top: -20px;
+  right: 0px;
 }
 
 .first {

@@ -206,6 +206,8 @@ function applyFilters() {
     document.getElementById("nationality-filter").value;
   const usersContainer = document.getElementById("users-container");
 
+  let count = 0;
+
   Array.from(usersContainer.children).forEach((userDiv) => {
     const gender = userDiv.getAttribute("data-gender");
     const nationality = userDiv.getAttribute("data-nationality");
@@ -215,17 +217,16 @@ function applyFilters() {
 
     if (matchGender && matchNationality) {
       userDiv.style.display = "";
+      count++;
     } else {
       userDiv.style.display = "none";
     }
-    let count = 0;
-    if (userDiv.style.display !== "none") {
-      count++;
-    }
-    document.getElementById(
-      "filter-results-count"
-    ).textContent = `Personnes trouvées : ${count}`;
   });
+
+  document.getElementById("filter-results-count").style.display = "";
+  document.getElementById(
+    "filter-results-count"
+  ).textContent = `Personnes trouvées : ${count}`;
 }
 
 function deleteUserCard(cardId) {
