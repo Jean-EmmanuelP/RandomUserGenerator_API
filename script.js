@@ -191,13 +191,13 @@ function updateUserCounts() {
 
   document.getElementById(
     "user-count-display"
-  ).textContent = `Nombre d'utilisateurs : ${totalUsers}`;
+  ).textContent = `Nb d'utilisateurs : ${totalUsers}`;
   document.getElementById(
     "male-count-display"
-  ).textContent = `Nombre d'hommes : ${maleCount}`;
+  ).textContent = `Nb d'hommes : ${maleCount}`;
   document.getElementById(
     "female-count-display"
-  ).textContent = `Nombre de femmes : ${femaleCount}`;
+  ).textContent = `Nb de femmes : ${femaleCount}`;
 }
 
 function applyFilters() {
@@ -240,6 +240,14 @@ function deleteUserCard(cardId) {
   } catch (error) {
     console.error("Error in deleteUserCard: ", error);
   }
+}
+
+function switchLanguage(lang) {
+  var elements = document.querySelectorAll('[data-lang]');
+
+  elements.forEach(function(el) {
+      el.textContent = el.getAttribute('data-lang-' + lang);
+  });
 }
 
 function clearUsers() {
