@@ -3,6 +3,12 @@
   <head>
     <title>Random User Generator</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="logo">
@@ -20,12 +26,6 @@
       </h1>
       <header>
         <div class="input_div">
-          <label
-            data-lang
-            data-lang-en="Enter the number of users you want to generate:"
-            data-lang-fr="Entrez le nombre d'utilisateur que vous souhaitez générer:"
-            >Entrez le nombre d'utilisateur que vous souhaitez générer:</label
-          >
           <input
             type="number"
             id="user-count"
@@ -72,8 +72,8 @@
       <div class="info">
         <h4
           data-lang
-          data-lang-en="Statistics"
-          data-lang-fr="Statistiques"
+          data-lang-en="See Statistics"
+          data-lang-fr="Voir Statistiques"
           onclick="toggleStatistics()"
         >
           Voir Statistiques
@@ -319,7 +319,7 @@
             data-lang-fr="Rechercher"
             onclick="applyFilters()"
           >
-            Rechercher
+            🔍 Rechercher
           </button>
         </div>
         <p
