@@ -1,0 +1,21 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 73" width="66" height="73"><symbol id="image-ef76c341d00b2e01ea43d7c18c3debb1a781bcc8"><image width="100%" height="100%" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAA1CAYAAAA+qNlvAAAAAXNSR0IArs4c6QAABCNJREFUaEPtmglPIkEQhQtPPPFAEW9M/P8/yOCNiuIBXuCF+SrWZtYodM2QSUymEhLFofv1q1evqtnNdbvdrvzByGXAU85axnjKhEvGeMZ4IAOZVAKJGthjGeMDozJwoYzx9/d3ub+/l8fHR3l5eZG3tzflbmRkRMbGxmRqakpmZmZkeHg4kNPejyVmnOHy+vpa7u7u5OPjo+duQ0NDMjc3J4uLi5LL5RIdIBHw19dXOTs7k06noyAmJydldnZWJiYmlGkC5p+fn6XVasnT05O+Nz4+LqurqzI6OhobfGzggD45OVFgSGFlZUXy+XxPIO12Wy4uLlRKHGxjYyM2+FjAkcfx8bEyDbtra2uCDEICOdVqNc0CzG9ubsaSTSzgaJoXTLNxKGg7GOA5OMyjd17ecAPHPQ4ODrQQAd1PHr8BQjaA59CVSsXtNm7guMfl5aUW4vr6upeo/54/PT3Vgl1eXla38YQbOPrEqylGHCRJ4DQUKx5PnXjCDXx/f1+dhPRiZxRqXE/GmZAdDrOzs+PB7b8B7e3tKdjd3V0FfH5+LvPz87G0zjqsxzqs5wk341HgbFStVrXA0CgH8LCfKnCTSrlcFlJNcaH3q6sr9WZ0Pz093TMD9rmHhwetl1SkYsXJsITGAY2fEwBqNpsCIGyT93mGjMAuf8e7CRoXlgrwVIrT7JDNi8WiLCws/ChNgNNZKWQAIiEOwWFsjknVDqMNKImXp96AoLfRaMjNzY0yvbW1pTOHJ6Itn4yROW+4XYUN0OvR0ZHqFdBMeaHzCqAZhSlqZMPBPU5kB4wFnM2RzJ8ZawFbr9e16GAZ5nEZcwq7nv10kbBrHYzBNC2eYoV5nIh5xXOtC2YccLiA3SXZ1DYPvbohCRoVmuZnbJNZhQziNAxtZq39NB8EHKbRNKBhk6DZoGtAACZ6WcYx+J3gGcDQlGhOAAQoBY61ErzH2pDBqBzCfBBwuuLt7a2CtlEWyTDdERQo7R5wvYoUcHyGtTgYrNvBqRcOzDpLS0v9CA8bsqzNf7c+Us2h6IgEQDgcB4E9fodd/g4oXhZcQEql0j8rpW7Iamj7D2L8+0QYpYMChUVeyKdXcBAKGGnRvL6v45kUg4AfHh6qc/CVAnL4LUg/4HmWn2Eb6cAiWYDl36RE9vB36mF7e3swUrH5xFv5fXf/eiDqWKHXuCDGWd8GIiqexfk6bRCBv3OHJUOe2ScYOGnntsMYSpB2cxJvy6YukAbuYgWL9pnxQ0eHYODGLl0OD476NExF3YSsGAAbD3AWnIMaoFva94w8iyUWCgVXAt3AWZ1NcREOYd8bunb98n7A0pRCWY7uEQt4dAG7hnEAuziQDfsvAsgIVs1ZcBcylOQLT+0Z2b/le7WS8PmM8YQEuj+eMe6mLOEHMsYTEuj++CeQUXCPCHim+AAAAABJRU5ErkJggg=="></image></symbol>
+  <!-- svg-source:excalidraw -->
+  
+  <defs>
+    <style class="style-fonts">
+      @font-face {
+        font-family: "Virgil";
+        src: url("https://excalidraw.com/Virgil.woff2");
+      }
+      @font-face {
+        font-family: "Cascadia";
+        src: url("https://excalidraw.com/Cascadia.woff2");
+      }
+      @font-face {
+        font-family: "Assistant";
+        src: url("https://excalidraw.com/Assistant-Regular.woff2");
+      }
+    </style>
+    
+  </defs>
+  <rect x="0" y="0" width="66" height="73" fill="#ffffff"></rect><g transform="translate(10 10) rotate(0 23 26.5)"><use href="#image-ef76c341d00b2e01ea43d7c18c3debb1a781bcc8" width="46" height="53" opacity="1"></use></g></svg>

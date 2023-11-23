@@ -42,17 +42,27 @@ function displayUsers(newUsers) {
     userDiv.id = `user-${index}`;
     userDiv.innerHTML = `
     <div class="imgbox">
-        <img src="${user.picture.large}" alt="Profile Picture of ${
-      user.name.first
-    }"></div>
+        <img src="${user.picture.large}" alt="Profile Picture of ${user.name.first}"></div>
         <h2 class="name"><span class="my_name_is">Hi, my name is <br/></span>${user.name.first} ${user.name.last}</h2>
         <div class="emojis">
-          <img src="" alt="name_logo" />
-          <img src="" alt="email_logo" />
-          <img src="" alt="calendar_logo" />
-          <img src="" alt="maps_logo" />
-          <img src="" alt="phone_logo" />
-          <img src="" alt="lock_logo" />
+          <div class="person_logo">
+            <img src="/svg/person.svg" alt="name_logo" />
+          </div>
+          <div class="email_logo">
+          <img src="/svg/mail.svg" alt="email_logo" />
+          </div>
+          <div class="calendar_logo">
+            <img src="/svg/calendar.svg" alt="calendar_logo" />
+            </div>
+          <div class="maps_logo">
+            <img src="/svg/maps.svg" alt="maps_logo" />
+            </div>
+          <div class="phone_logo">
+          <img src="/svg/phone.svg" alt="phone_logo" />
+          </div>
+          <div class="lock_logo">
+            <img src="/svg/lock.svg" alt="lock_logo" />
+          </div>
         </div>
         <button class="delete_button" onclick="deleteUserCard('user-${index}')">Delete this user</button>
       `;

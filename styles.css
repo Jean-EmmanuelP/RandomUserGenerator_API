@@ -203,6 +203,136 @@ button:hover {
   border: 5px solid white;
 }
 
+.person_logo {
+    position: relative;
+}
+
+.person_logo:before {
+    position: absolute;
+    content: url(/svg/hover/hover_person.svg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(20%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.person_logo:hover:before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.email_logo {
+    position: relative;
+}
+
+.email_logo:before {
+    position: absolute;
+    content: url(/svg/hover/hover_mail.svg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(20%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.email_logo:hover:before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.calendar_logo {
+    position: relative;
+    transform: translateY(4px);
+}
+
+.calendar_logo:before {
+    position: absolute;
+    content: url(/svg/hover/hover_calendar.svg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(20%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.calendar_logo:hover:before {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.maps_logo {
+    position: relative;
+    transform: translateY(4px);
+}
+
+.maps_logo:before {
+    position: absolute;
+    content: url(/svg/hover/hover_maps.svg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(20%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.maps_logo:hover:before {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.phone_logo {
+    position: relative;
+    transform: translateY(1px);
+}
+
+.phone_logo:before {
+    position: absolute;
+    content: url(/svg/hover/hover_phone.svg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(20%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.phone_logo:hover:before {
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.lock_logo {
+    position: relative;
+    transform: translateY(-5px);
+}
+
+.lock_logo:before {
+    position: absolute;
+    content: url(/svg/hover/hover_lock.svg);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(20%);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.lock_logo:hover:before {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

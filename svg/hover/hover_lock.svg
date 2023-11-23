@@ -1,0 +1,21 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78 79" width="78" height="79"><symbol id="image-07fa2ecee001418e9ebb37c66f615d8323f1393d"><image width="100%" height="100%" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA7CAYAAAAq55mNAAAAAXNSR0IArs4c6QAAA3NJREFUaEPtmktME0EYx/88asqjSJSaFBQMCBpUTDQFAUVBIB5EIDEcjAbEeBAS9UDA18GDMQE9GJPiwaAQDVEPguJBC0JEG7RVokSMgDQIShMehgBCpZQ1W+IDU9oddrvslp3LXr6Z+f++/zfdmdl6UBRFYQk0DwnUzVyWHHUzQ8Gro20mLUABMcHpvOeRN9Ch8S+o0BfaAPNjNVD6h/EKywuoxfoTN/WFGBzvscEp/cKQH6eBzEvOGywvoHXtl/G+/+kcKLp8928sFhboxfpU3gSRTnQ+rYFRF0aOLhlQRikTeBAjRwXOwEieBMooTSIKkhwVkVmMpEqOMkqTiIIkR0VkFiOpvDg6MTUCfV8tOgd0+D7xzSZshW8IolYlQr0mC37LAhmJZRPkctCOAR3o04t5etyuTrm3P7I2n8G6oDg2HE77uhS0e8iAu+/OgaJmEBGkRnxYDkKWR4OirDCNdaGl5z4+D72Gp4cnDmy5gChlglPBCw1wGeikZRTlujzQz6Tww0iKyLWrsdl4G83dVfCRKVCQSD8DFsrisJ/LQF8Y7+B5dyXCV27Dwa2lDkVUt56GcfgNdkXkYWf4IXGBVrw6bitPGpKGddSMw29R3VoClSISR7dfFxdoaeM+WKxmFCc/wjJvX4fip6YnUdaUYbtDKkl5LC7Q37cSTK86SONJs+GyNUoqnDReAp0nA5KjpKXxfzxpKZLGk+rjxFHrjAXPum6gzVQPs2WMVIP9raFMgRhVGvZEHoOXp4z1mJyAajs00PfWsBZjb4DY0Gykr5/9ZsOmcQJ6pSkT5ukfyFNfw+rAaDZ6/vT9OvIRlYYToDf9Rcm1rMfkBNRV64vLcSVQklrhMvP/zsvluLw6OjJpwsMPZegf/YTggA3I3FSMQB/VvDkVLWiV4RSilPFQh2bD0FuDzsEW5Kqvuh/opYa9KEmps70X6XdvaWMGzqY+cT/QWUcTEL82By0999zXUXqNluuOoHBHFTQvc1GQeMs91yhdo/RW0dBXa7vmpLd3jppof4xIXll0rARKmjGAm3+OcZl5QW8YXLOpb0el4STkMgWKdrM/GXGyM9J2lEPf+2ABBeW8i6COaX8P3lqYLfa/sThHmhshl/kjRpUurIM3KcRixHNSuoshnHROCZQ0Y0KPlxwVukOk+iRHSTMm9PhfAco8brYzzSMAAAAASUVORK5CYII="></image></symbol>
+  <!-- svg-source:excalidraw -->
+  
+  <defs>
+    <style class="style-fonts">
+      @font-face {
+        font-family: "Virgil";
+        src: url("https://excalidraw.com/Virgil.woff2");
+      }
+      @font-face {
+        font-family: "Cascadia";
+        src: url("https://excalidraw.com/Cascadia.woff2");
+      }
+      @font-face {
+        font-family: "Assistant";
+        src: url("https://excalidraw.com/Assistant-Regular.woff2");
+      }
+    </style>
+    
+  </defs>
+  <rect x="0" y="0" width="78" height="79" fill="#ffffff"></rect><g transform="translate(10 10) rotate(0 29 29.5)"><use href="#image-07fa2ecee001418e9ebb37c66f615d8323f1393d" width="58" height="59" opacity="1"></use></g></svg>

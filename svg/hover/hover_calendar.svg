@@ -1,0 +1,21 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 82" width="76" height="82"><symbol id="image-662f3f3333f461c9ce99ffeb38c6b899e48ce548"><image width="100%" height="100%" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA+CAYAAAB+39gDAAAAAXNSR0IArs4c6QAAApNJREFUaEPtms1LVFEYxp/rR0aaOzFs4SJCUJBWjbSRyA+MEP8Gxz5owI0URC1DhXI5TYkj/gtiIJoibipnVUFCEZGL8iNXOoXpOFfOjRszw5379d57OqPv3d7znvM+z+8975xzGU3XdR3H+NFYYInTZYIlDhBMkAkq7oDUEv2wPg/oQGtDlzRbpAncTq8hmYoZwvovx1FX0yhFpBSBB4d/MJmK4Wf6myGqrroR/ZE4KstPhy5SisCZj0/w/sdcnhhRpr0t9/+/wMevOkJPgrLAo84F23BHgsdeIMVdFWIdCaqQJCUHFkhxT4VYJqgCBUoOTJDingqxTFAFCpQcmKBX95IrdyFutdFIwlPo3zggGnnmKc5pcOAERxevI5Pdh9MpvzAx81DvNY4FUj7dP38dxfavtX8mCvdzCbq9aj24NouRxR5jHjFHbpy4/d++knQCVfQ9qUQLBYjkJldiyOpZDLQl8hK1y1AInEoNAppm7EGref0qDFTgzbYXqD97wchlfeczzMbhlJz4PtNQ22QM20p/xfibW3khlH0ZqEAnIX7fs0Ab50gEhxe6jP0W5qNpZXjYMe97CZJAs2OKJlFeVuk7iWKBQfw2skA7LIUEc9s7pTGYaypH8EQKdHuaya0Uk75yBIPuMizQhaOBdtETuQddmFx0iHIlakWQm4wNYuUIUsrRKlY5gdxkPCIuCYLcZFRuMk+X+rCXSWMgksC52oseC9B++MbuF0y8vYOqimrcuzrte27SSebl6hjefZ/1vbibwEvne3CjecjNUMsxJIEHh3uY+xTH6uYy9jO/fSdhFXiq4gya69vR3RQj/SOKJDBQRSFNxgJDMlbatExQmtUhLcQEQzJW2rRMUJrVIS10BNWZQ2UgaZ61AAAAAElFTkSuQmCC"></image></symbol>
+  <!-- svg-source:excalidraw -->
+  
+  <defs>
+    <style class="style-fonts">
+      @font-face {
+        font-family: "Virgil";
+        src: url("https://excalidraw.com/Virgil.woff2");
+      }
+      @font-face {
+        font-family: "Cascadia";
+        src: url("https://excalidraw.com/Cascadia.woff2");
+      }
+      @font-face {
+        font-family: "Assistant";
+        src: url("https://excalidraw.com/Assistant-Regular.woff2");
+      }
+    </style>
+    
+  </defs>
+  <rect x="0" y="0" width="76" height="82" fill="#ffffff"></rect><g transform="translate(10 10) rotate(0 28 31)"><use href="#image-662f3f3333f461c9ce99ffeb38c6b899e48ce548" width="56" height="62" opacity="1"></use></g></svg>
