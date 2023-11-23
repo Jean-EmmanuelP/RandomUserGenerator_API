@@ -60,47 +60,69 @@ input {
 
 .info {
   display: flex;
-  padding: 5px;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-around;
-  margin: 0px 20px;
   background: beige;
   flex-wrap: wrap;
 }
 
+.info h4 {
+  text-align: center;
+}
+
+.info div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .info p {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 .filter {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: blue;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: blue;
+  position: relative;
 }
 
 .filter_selector {
-    display: flex;
-    flex-direction: row;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: row;
 }
 
 .search_div {
-    display: flex;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.search_div button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
+button {
+  transition: 0.2s;
+}
 
+button:hover {
+  transform: translateY(-2px);
+}
 
-
-
-
-
-
-
-
+.finded_person {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 
 @keyframes fadeIn {
   from {
