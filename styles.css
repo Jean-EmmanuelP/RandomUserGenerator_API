@@ -47,9 +47,60 @@ input {
   padding: 3px;
 }
 
-.loading_users button {
-    
+.loading_users {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
+
+.loading_users button {
+  padding: 5px 10px;
+  border: 1px solid black;
+}
+
+.info {
+  display: flex;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0px 20px;
+  background: beige;
+  flex-wrap: wrap;
+}
+
+.info p {
+    font-size: 0.9em;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: blue;
+    position: relative;
+}
+
+.filter_selector {
+    display: flex;
+    flex-direction: row;
+}
+
+.search_div {
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 @keyframes fadeIn {
   from {

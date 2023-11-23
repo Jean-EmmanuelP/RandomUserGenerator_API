@@ -30,36 +30,40 @@
       <p id="female-count-display">Nombre de femmes : 0</p>
     </div>
     <div class="filter">
-      <select id="gender-filter">
-        <option value="">Tous les genres</option>
-        <option value="male">Hommes</option>
-        <option value="female">Femmes</option>
-      </select>
-      <select id="nationality-filter" onchange="filterUsersByNationality()">
-        <option value="">Toutes les nationalités</option>
-        <option value="AU">Australie (AU)</option>
-        <option value="BR">Brésil (BR)</option>
-        <option value="CA">Canada (CA)</option>
-        <option value="CH">Suisse (CH)</option>
-        <option value="DE">Allemagne (DE)</option>
-        <option value="DK">Danemark (DK)</option>
-        <option value="ES">Espagne (ES)</option>
-        <option value="FI">Finlande (FI)</option>
-        <option value="FR">France (FR)</option>
-        <option value="GB">Royaume-Uni (GB)</option>
-        <option value="IE">Irlande (IE)</option>
-        <option value="IN">Inde (IN)</option>
-        <option value="IR">Iran (IR)</option>
-        <option value="MX">Mexique (MX)</option>
-        <option value="NL">Pays-Bas (NL)</option>
-        <option value="NO">Norvège (NO)</option>
-        <option value="NZ">Nouvelle-Zélande (NZ)</option>
-        <option value="RS">Serbie (RS)</option>
-        <option value="TR">Turquie (TR)</option>
-        <option value="UA">Ukraine (UA)</option>
-        <option value="US">États-Unis (US)</option>
-      </select>
-      <button onclick="applyFilters()">Rechercher</button>
+      <div class="filter_selector">
+        <select id="gender-filter">
+          <option value="">Tous les genres</option>
+          <option value="male">Hommes</option>
+          <option value="female">Femmes</option>
+        </select>
+        <select id="nationality-filter" onchange="filterUsersByNationality()">
+          <option value="">Toutes les nationalités</option>
+          <option value="AU">Australie (AU)</option>
+          <option value="BR">Brésil (BR)</option>
+          <option value="CA">Canada (CA)</option>
+          <option value="CH">Suisse (CH)</option>
+          <option value="DE">Allemagne (DE)</option>
+          <option value="DK">Danemark (DK)</option>
+          <option value="ES">Espagne (ES)</option>
+          <option value="FI">Finlande (FI)</option>
+          <option value="FR">France (FR)</option>
+          <option value="GB">Royaume-Uni (GB)</option>
+          <option value="IE">Irlande (IE)</option>
+          <option value="IN">Inde (IN)</option>
+          <option value="IR">Iran (IR)</option>
+          <option value="MX">Mexique (MX)</option>
+          <option value="NL">Pays-Bas (NL)</option>
+          <option value="NO">Norvège (NO)</option>
+          <option value="NZ">Nouvelle-Zélande (NZ)</option>
+          <option value="RS">Serbie (RS)</option>
+          <option value="TR">Turquie (TR)</option>
+          <option value="UA">Ukraine (UA)</option>
+          <option value="US">États-Unis (US)</option>
+        </select>
+      </div>
+      <div class="search_div">
+        <button onclick="applyFilters()">Rechercher</button>
+      </div>
       <p id="filter-results-count">Personnes trouvées : 0</p>
     </div>
     <div id="users-container"></div>
