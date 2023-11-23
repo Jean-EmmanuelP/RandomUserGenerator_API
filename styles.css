@@ -9,26 +9,69 @@ body {
   position: relative;
   min-height: 100vh;
   font-family: Inter;
-  background: #f5ecf5;
+  padding: 0;
+  margin: 0;
+  border-top: 12px solid #222222;
+}
+
+body:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background: #222222;
+  z-index: -1;
+}
+
+body:before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: #2C2E31;
+  border: 1px solid rgba(132, 132, 132, 0.1);
 }
 
 .logo {
   position: absolute;
   z-index: 4;
-  top: 5px;
+  top: -5px;
   right: 0px;
 }
 
 .first {
   position: relative;
-  height: 40vh;
 }
 
 h1 {
-  height: 5%;
-  margin-bottom: 30px;
+  color: white;
+  margin: 0px;
+  margin-top: 10px;
+  letter-spacing: 1.3px;
+  font-size: 1.5em;
   position: relative;
   text-align: center;
+}
+
+.description {
+  position: absolute;
+  display: flex;
+  color: rgb(147, 146, 146);
+  width: 60%;
+  font-weight: lighter;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 0.5em;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 50px;
 }
 
 header {
@@ -46,7 +89,7 @@ button {
   transition: 0.2s;
   padding: 5px 10px;
   border-radius: 10px;
-  background-color: #f6124b;
+  background-color: #83BA43;
   color: white;
   box-shadow: 0 0 5px rgba(232, 232, 232, 0.3);
 }
@@ -55,10 +98,10 @@ button {
 .fr {
   position: absolute;
   border-radius: 2px;
-  top: 0px;
-  left: 0;
+  top: 10px;
+  right: 100px;
   z-index: 10;
-  background-image: url(https://www.larousse.fr/encyclopedie/data/images/1009488-Drapeau_des_%C3%89tats-Unis.jpg);
+  background-image: url(/svg/flag/eng_flag.svg);
   background-size: contain;
   background-position: center;
   color: transparent;
@@ -67,20 +110,21 @@ button {
   height: 20px;
 }
 
+.fr {
+  background-image: url(/svg/flag/fr_flag.svg);
+  background-size: cover;
+  background-position: center;
+  right: 140px;
+  width: 30px;
+  margin-left: 5px;
+}
+
 select {
   border: 1px solid rgba(232, 232, 232, 0.5);
   margin-left: 5px;
   padding: 5px 10px;
 }
 
-.fr {
-  background-image: url(https://www.herodote.net/_image/france.jpg);
-  background-size: cover;
-  background-position: center;
-  left: 28px;
-  width: 30px;
-  margin-left: 5px;
-}
 
 .input_div {
   width: 90%;
@@ -97,14 +141,18 @@ select {
 }
 
 input {
-  height: 50%;
-  width: 50%;
+  margin-top: 2px;
+  display: flex;
   text-align: center;
+  font-size: 1.4em;
+  border: 1px solid rgba(132, 132, 132, 0.1);
+  box-shadow: 0 10px 10px rgba(123, 123, 123, 0.3);
   border-radius: 20px;
-  padding: 10px;
+  padding: 10px 0px;
 }
 
 .loading_users {
+  margin-top: 20px;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -112,6 +160,7 @@ input {
 
 .loading_users button {
   border-radius: 5px;
+  font-size: 1em;
   padding: 5px 10px;
 }
 
@@ -139,12 +188,27 @@ input {
   font-size: 0.9em;
 }
 
+
+.users_container {
+  position: relative;
+  overflow-y: auto;
+  scroll-behavior: auto;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .filter {
-  height: 30%;
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 
 .filter_selector {
@@ -155,6 +219,7 @@ input {
 
 .search_div {
   margin-left: 15px;
+  margin-bottom: 10px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -176,18 +241,17 @@ button:hover {
 
 .finded_person {
   position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.users_container {
-  overflow: auto;
-  scroll-behavior: auto;
-  width: 100%;
-  height: 60vh;
   display: flex;
-  flex-direction: column;
+  width: 140%;
+  height: 30px;
+  bottom: -50%;
+  transform: translate(-7%, -20%);
   align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background: white;
+  color: #f6124b;
+  left: 120%;
 }
 
 .user-card {

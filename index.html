@@ -19,10 +19,10 @@
     <div class="first">
       <h1
         data-lang
-        data-lang-en="Random User Generator"
-        data-lang-fr="Générateur d'Utilisateurs Aléatoires"
+        data-lang-en="Input, load, filter: streamline your profile search!"
+        data-lang-fr="Entrez un chiffre, chargez, filtrez: simplifiez votre recherche !"
       >
-        Générateur d'Utilisateurs Aléatoires
+        Entrez un chiffre, chargez, filtrez: simplifiez votre recherche !
       </h1>
       <header>
         <div class="input_div">
@@ -320,18 +320,18 @@
             onclick="applyFilters()"
           >
             🔍 Rechercher
+            <p
+              id="filter-results-count"
+              class="finded_person"
+              style="display: none"
+              data-lang
+              data-lang-en="People found: 0"
+              data-lang-fr="Personnes trouvées : 0"
+            >
+              Personnes trouvées : 0
+            </p>
           </button>
         </div>
-        <p
-          id="filter-results-count"
-          class="finded_person"
-          style="display: none"
-          data-lang
-          data-lang-en="People found: 0"
-          data-lang-fr="Personnes trouvées : 0"
-        >
-          Personnes trouvées : 0
-        </p>
       </div>
     </div>
     <div id="users-container" class="users_container"></div>
