@@ -1,4 +1,5 @@
 function fetchUsers(gender = "") {
+  console.log(`teeee`);
   const userCount = document.getElementById("user-count").value || 1;
   fetch(`https://randomuser.me/api/?results=${userCount}&gender=${gender}`)
     .then((response) => response.json())
@@ -12,21 +13,43 @@ function displayUsers(newUsers) {
   const usersContainer = document.getElementById("users-container");
 
   let existingUsers = Array.from(usersContainer.children).map((child) => {
+    // Added error handling for each property
     return {
-      picture: { large: child.querySelector("img").src },
-      name: {
-        first: child.querySelector("h2").textContent.split(" ")[0],
-        last: child.querySelector("h2").textContent.split(" ")[1],
+      picture: {
+        large: child.querySelector("img") ? child.querySelector("img").src : "",
       },
-      email: child.querySelectorAll("p")[0].textContent.replace("Email: ", ""),
-      gender: child.getAttribute("data-gender"),
-      nat: child.getAttribute("data-nationality"),
+      name: {
+        first: child.querySelector("h2")
+          ? child.querySelector("h2").textContent.split(" ")[0]
+          : "",
+        last: child.querySelector("h2")
+          ? child.querySelector("h2").textContent.split(" ")[1]
+          : "",
+      },
+      email:
+        child.querySelectorAll("p").length > 0
+          ? child.querySelectorAll("p")[0].textContent.replace("Email: ", "")
+          : "",
+      gender: child.getAttribute("data-gender") || "",
+      nat: child.getAttribute("data-nationality") || "",
+      address: child.location
+        ? `${child.location.street.number} ${child.location.street.name}, ${child.location.city}, ${child.location.state}, ${child.location.country}, ${child.location.postcode}`
+        : "",
+      phone: child.querySelector(".phone")
+        ? child.querySelector(".phone").textContent.replace("Phone: ", "")
+        : "",
+      password: child.querySelector(".password")
+        ? child.querySelector(".password").textContent.replace("Password: ", "")
+        : "",
       dob: {
-        date: new Date(
-          child
-            .querySelectorAll("p")[1]
-            .textContent.replace("Date of Birth: ", "")
-        ),
+        date:
+          child.querySelectorAll("p").length > 1
+            ? new Date(
+                child
+                  .querySelectorAll("p")[1]
+                  .textContent.replace("Date of Birth: ", "")
+              )
+            : new Date(),
       },
     };
   });
@@ -43,8 +66,8 @@ function displayUsers(newUsers) {
     userDiv.innerHTML = `
     <div class="imgbox">
         <img src="${user.picture.large}" alt="Profile Picture of ${user.name.first}"></div>
-        <h2 class="name"><span class="my_name_is">Hi, my name is <br/></span>${user.name.first} ${user.name.last}</h2>
-        <div class="emojis">
+        <h2 class="name" id="name-${index}"><span class="label">Hi, my name is</span><br/><span class="value">${user.name.first} ${user.name.last}</span></h2>
+        <div class="emojis" id="emojis-${index}">
           <div class="person_logo">
             <img src="/svg/person.svg" alt="name_logo" />
           </div>
@@ -73,6 +96,74 @@ function displayUsers(newUsers) {
     }
 
     usersContainer.appendChild(userDiv);
+  });
+
+  allUsers.forEach((user, index) => {
+    const nameLabel = document
+      .getElementById(`name-${index}`)
+      .querySelector(".label");
+    const nameValue = document
+      .getElementById(`name-${index}`)
+      .querySelector(".value");
+    document
+      .getElementById(`emojis-${index}`)
+      .querySelector(".person_logo")
+      .addEventListener("mouseover", () => {
+        nameLabel.textContent = "Hi, my name is";
+        nameValue.textContent = `${user.name.first} ${user.name.last}`;
+      });
+
+    document
+      .getElementById(`emojis-${index}`)
+      .querySelector(".email_logo")
+      .addEventListener("mouseover", () => {
+        nameLabel.textContent = "My email address is";
+        nameValue.textContent = `${user.email}`;
+      });
+    document
+      .getElementById(`emojis-${index}`)
+      .querySelector(".calendar_logo")
+      .addEventListener("mouseover", () => {
+        nameLabel.textContent = "My birthday is";
+        nameValue.textContent = `${user.dob.date}`;
+      });
+    document
+      .getElementById(`emojis-${index}`)
+      .querySelector(".calendar_logo")
+      .addEventListener("mouseover", () => {
+        nameLabel.textContent = "My birthday is";
+        nameValue.textContent = new Date(user.dob.date).toLocaleDateString(
+          "en-US",
+          {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          }
+        );
+      });
+    document
+      .getElementById(`emojis-${index}`)
+      .querySelector(".maps_logo")
+      .addEventListener("mouseover", () => {
+        nameLabel.textContent = "My address is";
+        nameValue.textContent = `${user.location.street.number} ${user.location.street.name}`;
+      });
+
+    document
+      .getElementById(`emojis-${index}`)
+      .querySelector(".phone_logo")
+      .addEventListener("mouseover", () => {
+        nameLabel.textContent = "My phone number is";
+        nameValue.textContent = `${user.phone}`;
+      });
+
+    document
+      .getElementById(`emojis-${index}`)
+      .querySelector(".lock_logo")
+      .addEventListener("mouseover", () => {
+        nameLabel.textContent = "My password is";
+        nameValue.textContent = `${user.login.password}`;
+      });
   });
   updateUserCounts();
 }
@@ -141,4 +232,4 @@ function clearUsers() {
   updateUserCounts();
 }
 
-fetchUsers();
+fetchUsers(10);
