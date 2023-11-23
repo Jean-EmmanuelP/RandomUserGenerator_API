@@ -70,10 +70,15 @@
         </div>
       </header>
       <div class="info">
-        <h4 data-lang data-lang-en="Statistics" data-lang-fr="Statistiques">
-          Statistiques
+        <h4
+          data-lang
+          data-lang-en="Statistics"
+          data-lang-fr="Statistiques"
+          onclick="toggleStatistics()"
+        >
+          Voir Statistiques
         </h4>
-        <div>
+        <div id="statistics-content" style="display: none">
           <p
             id="user-count-display"
             data-lang

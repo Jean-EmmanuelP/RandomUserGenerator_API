@@ -196,6 +196,15 @@ function displayUsers(newUsers) {
   updateUserCounts();
 }
 
+function toggleStatistics() {
+  var statisticsContent = document.getElementById("statistics-content");
+  if (statisticsContent.style.display === "none") {
+    statisticsContent.style.display = "flex";
+  } else {
+    statisticsContent.style.display = "none";
+  }
+}
+
 function updateUserCounts() {
   const usersContainer = document.getElementById("users-container");
   const totalUsers = usersContainer.children.length;
