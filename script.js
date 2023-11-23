@@ -1,4 +1,4 @@
-var currentLanguage = 'fr';
+var currentLanguage = "fr";
 
 function fetchUsers(gender = "") {
   console.log(`teeee`);
@@ -92,7 +92,8 @@ function displayUsers(newUsers) {
             <img src="/svg/lock.svg" alt="lock_logo" />
           </div>
         </div>
-        <button class="delete_button" onclick="deleteUserCard('user-${index}')">Delete this user</button>
+        <button class="delete_button" onclick="deleteUserCard('user-${index}')" data-lang data-lang-en="Delete this user"
+        data-lang-fr="Supprimer cet utilisateur" >Supprimer cet utilisateur</button>
       `;
     if (userDiv) {
       userDiv.setAttribute("data-gender", user.gender || "unknown");
@@ -119,7 +120,11 @@ function displayUsers(newUsers) {
       .getElementById(`emojis-${index}`)
       .querySelector(".person_logo")
       .addEventListener("mouseover", () => {
-        nameLabel.textContent = "Hi, my name is";
+        if (currentLanguage !== "fr") {
+          nameLabel.textContent = "Hi, my name is";
+        } else {
+          nameLabel.textContent = "Salut, je suis";
+        }
         nameValue.textContent = `${user.name.first} ${user.name.last}`;
       });
 
@@ -127,21 +132,22 @@ function displayUsers(newUsers) {
       .getElementById(`emojis-${index}`)
       .querySelector(".email_logo")
       .addEventListener("mouseover", () => {
-        nameLabel.textContent = "My email address is";
+        if (currentLanguage !== "fr") {
+          nameLabel.textContent = "My email address is";
+        } else {
+          nameLabel.textContent = "Mon addresse email est";
+        }
         nameValue.textContent = `${user.email}`;
       });
     document
       .getElementById(`emojis-${index}`)
       .querySelector(".calendar_logo")
       .addEventListener("mouseover", () => {
-        nameLabel.textContent = "My birthday is";
-        nameValue.textContent = `${user.dob.date}`;
-      });
-    document
-      .getElementById(`emojis-${index}`)
-      .querySelector(".calendar_logo")
-      .addEventListener("mouseover", () => {
-        nameLabel.textContent = "My birthday is";
+        if (currentLanguage !== "fr") {
+          nameLabel.textContent = "My birthday is";
+        } else {
+          nameLabel.textContent = "Je suis né le";
+        }
         nameValue.textContent = new Date(user.dob.date).toLocaleDateString(
           "en-US",
           {
@@ -155,7 +161,11 @@ function displayUsers(newUsers) {
       .getElementById(`emojis-${index}`)
       .querySelector(".maps_logo")
       .addEventListener("mouseover", () => {
-        nameLabel.textContent = "My address is";
+        if (currentLanguage !== "fr") {
+          nameLabel.textContent = "My address is";
+        } else {
+          nameLabel.textContent = "J'habite au";
+        }
         nameValue.textContent = `${user.location.street.number} ${user.location.street.name}`;
       });
 
@@ -163,7 +173,11 @@ function displayUsers(newUsers) {
       .getElementById(`emojis-${index}`)
       .querySelector(".phone_logo")
       .addEventListener("mouseover", () => {
-        nameLabel.textContent = "My phone number is";
+        if (currentLanguage !== "fr") {
+          nameLabel.textContent = "My phone number is";
+        } else {
+          nameLabel.textContent = "Mon numéro de téléphone est :";
+        }
         nameValue.textContent = `${user.phone}`;
       });
 
@@ -171,7 +185,11 @@ function displayUsers(newUsers) {
       .getElementById(`emojis-${index}`)
       .querySelector(".lock_logo")
       .addEventListener("mouseover", () => {
-        nameLabel.textContent = "My password is";
+        if (currentLanguage !== "fr") {
+          nameLabel.textContent = "My password is";
+        } else {
+          nameLabel.textContent = "Mon mot de passe est";
+        }
         nameValue.textContent = `${user.login.password}`;
       });
   });
