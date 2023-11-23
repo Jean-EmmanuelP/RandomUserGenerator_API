@@ -1,0 +1,21 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 63" width="64" height="63"><symbol id="image-1a93217143d9714fed5e13b8054c8b62970b6511"><image width="100%" height="100%" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAArCAYAAAADgWq5AAAAAXNSR0IArs4c6QAAAXVJREFUWEftlz2vRUAQhocCjahEhwL///cQCTpRiQYJTnaTvdnIudkP9p4cd7aSmBlvnnlnNqzjOA74omOhYMPdQsKGAQMSRsInAv/HEl3XAblzkiRRckHbtjReNY99RJtwVVVUcFEUSoLLsqTxqnnPFtw0Dazr+kOS0OEJM2oi1Hme0zxGmM9zHAfSNBWVkNvDZ0FEMO9hFcEkz7IsiOMY3tUVKZby8LkwGRjXdWnteZ6peJlDRHqeR0OXZQE2gCxXxtdagmXE6cSgYB1qKjm3EWYbgUw5GZi7j8pulvLw1wvmt4ZMG0UdMU74EYJlLw+eNuuOccKiFqu+R8HnLfEID6vagI83bol3hHHofmkZ3nQ6Xv6Ih3WEspyPCMahuzJ0dV3Dtm30x5H9k12xAJ/L/glt24Ysy4RlpbZE3/cwjqOw2JWAIAggiiJhCSnB+77DMAwwTROQ5zsPIev7PoRhCORZdKQEi4r85XsUbJo2EkbCJwIvV/HXjwDjkukAAAAASUVORK5CYII="></image></symbol>
+  <!-- svg-source:excalidraw -->
+  
+  <defs>
+    <style class="style-fonts">
+      @font-face {
+        font-family: "Virgil";
+        src: url("https://excalidraw.com/Virgil.woff2");
+      }
+      @font-face {
+        font-family: "Cascadia";
+        src: url("https://excalidraw.com/Cascadia.woff2");
+      }
+      @font-face {
+        font-family: "Assistant";
+        src: url("https://excalidraw.com/Assistant-Regular.woff2");
+      }
+    </style>
+    
+  </defs>
+  <rect x="0" y="0" width="64" height="63" fill="#ffffff"></rect><g transform="translate(10 10) rotate(0 22 21.5)"><use href="#image-1a93217143d9714fed5e13b8054c8b62970b6511" width="44" height="43" opacity="1"></use></g></svg>

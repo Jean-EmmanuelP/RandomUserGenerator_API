@@ -1,22 +1,32 @@
 * {
+  box-sizing: border-box;
   padding: none;
   margin: none;
 }
 
 body {
+  overflow: hidden;
   background-color: rgb(234, 234, 233);
   position: relative;
   min-height: 100vh;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+.first {
+  position: relative;
+  height: 40vh;
+  border: 1px solid black;
+}
+
 h1 {
+  height: 5%;
+  margin-bottom: 30px;
   position: relative;
   text-align: center;
-  align-items: center;
 }
 
 header {
+  height: 25%;
   display: flex;
   flex-direction: column;
   background: red;
@@ -59,6 +69,7 @@ input {
 }
 
 .info {
+  height: 20%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -82,6 +93,7 @@ input {
 }
 
 .filter {
+  height: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,6 +134,73 @@ button:hover {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.users_container {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: red;
+}
+
+.user-card {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-top: 30px;
+  z-index: 1;
+}
+
+.user-card:before {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  content: "";
+  background: #f9f9f9;
+  border-bottom: 1px solid rgba(134, 134, 134, 0.2);
+}
+
+.delete_button {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.emojis {
+    display: flex;
+    flex-direction: row;
+}
+
+.imgbox {
+  z-index: 1;
+  position: relative;
+  background: rgb(179, 178, 178);
+  border: 1px solid rgb(179, 178, 178);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my_name_is {
+  color: #99a6c4;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: normal;
+  font-size: 0.7em;
+}
+.user-card img {
+  z-index: 1;
+  border-radius: 50%;
+  border: 5px solid white;
 }
 
 @keyframes fadeIn {

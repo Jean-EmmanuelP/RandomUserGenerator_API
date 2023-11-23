@@ -5,74 +5,77 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Random User Generator</h1>
-    <header>
-      <div class="input_div">
-        <label>Entrez le nombre d'utilisateur que vous souhaitez genere:</label>
-        <input
-          type="number"
-          id="user-count"
-          placeholder="Enter number of users"
-          min="1"
-          value="1"
-        />
-      </div>
-      <div class="loading_users">
-        <button onclick="fetchUsers()">Load More Users</button>
-        <button onclick="fetchUsers('male')">Male Users</button>
-        <button onclick="fetchUsers('female')">Female Users</button>
-        <button onclick="clearUsers()">Effacer tous les utilisateurs</button>
-      </div>
-    </header>
-    <!-- faire en sorte que ce soit des informations qui soient afficher seulement sur demande -->
-    <div class="info">
-      <h4>Statistiques</h4>
-      <div>
-        <p id="user-count-display">Nombre d'utilisateurs : 0</p>
-        <p id="male-count-display">Nombre d'hommes : 0</p>
-        <p id="female-count-display">Nombre de femmes : 0</p>
-      </div>
+    <div class="first">
+
+        <h1>Random User Generator</h1>
+        <header>
+          <div class="input_div">
+            <label>Entrez le nombre d'utilisateur que vous souhaitez genere:</label>
+            <input
+              type="number"
+              id="user-count"
+              placeholder="Enter number of users"
+              min="1"
+              value="1"
+            />
+          </div>
+          <div class="loading_users">
+            <button onclick="fetchUsers()">Load More Users</button>
+            <button onclick="fetchUsers('male')">Male Users</button>
+            <button onclick="fetchUsers('female')">Female Users</button>
+            <button onclick="clearUsers()">Effacer tous les utilisateurs</button>
+          </div>
+        </header>
+        <!-- faire en sorte que ce soit des informations qui soient afficher seulement sur demande -->
+        <div class="info">
+          <h4>Statistiques</h4>
+          <div>
+            <p id="user-count-display">Nombre d'utilisateurs : 0</p>
+            <p id="male-count-display">Nombre d'hommes : 0</p>
+            <p id="female-count-display">Nombre de femmes : 0</p>
+          </div>
+        </div>
+        <div class="filter">
+          <div class="filter_selector">
+            <select id="gender-filter">
+              <option value="">Tous les genres</option>
+              <option value="male">Hommes</option>
+              <option value="female">Femmes</option>
+            </select>
+            <select id="nationality-filter" onchange="filterUsersByNationality()">
+              <option value="">Toutes les nationalités</option>
+              <option value="AU">Australie (AU)</option>
+              <option value="BR">Brésil (BR)</option>
+              <option value="CA">Canada (CA)</option>
+              <option value="CH">Suisse (CH)</option>
+              <option value="DE">Allemagne (DE)</option>
+              <option value="DK">Danemark (DK)</option>
+              <option value="ES">Espagne (ES)</option>
+              <option value="FI">Finlande (FI)</option>
+              <option value="FR">France (FR)</option>
+              <option value="GB">Royaume-Uni (GB)</option>
+              <option value="IE">Irlande (IE)</option>
+              <option value="IN">Inde (IN)</option>
+              <option value="IR">Iran (IR)</option>
+              <option value="MX">Mexique (MX)</option>
+              <option value="NL">Pays-Bas (NL)</option>
+              <option value="NO">Norvège (NO)</option>
+              <option value="NZ">Nouvelle-Zélande (NZ)</option>
+              <option value="RS">Serbie (RS)</option>
+              <option value="TR">Turquie (TR)</option>
+              <option value="UA">Ukraine (UA)</option>
+              <option value="US">États-Unis (US)</option>
+            </select>
+          </div>
+          <div class="search_div">
+            <button onclick="applyFilters()">Rechercher</button>
+          </div>
+          <p id="filter-results-count" class="finded_person">
+            Personnes trouvées : 0
+          </p>
+        </div>
     </div>
-    <div class="filter">
-      <div class="filter_selector">
-        <select id="gender-filter">
-          <option value="">Tous les genres</option>
-          <option value="male">Hommes</option>
-          <option value="female">Femmes</option>
-        </select>
-        <select id="nationality-filter" onchange="filterUsersByNationality()">
-          <option value="">Toutes les nationalités</option>
-          <option value="AU">Australie (AU)</option>
-          <option value="BR">Brésil (BR)</option>
-          <option value="CA">Canada (CA)</option>
-          <option value="CH">Suisse (CH)</option>
-          <option value="DE">Allemagne (DE)</option>
-          <option value="DK">Danemark (DK)</option>
-          <option value="ES">Espagne (ES)</option>
-          <option value="FI">Finlande (FI)</option>
-          <option value="FR">France (FR)</option>
-          <option value="GB">Royaume-Uni (GB)</option>
-          <option value="IE">Irlande (IE)</option>
-          <option value="IN">Inde (IN)</option>
-          <option value="IR">Iran (IR)</option>
-          <option value="MX">Mexique (MX)</option>
-          <option value="NL">Pays-Bas (NL)</option>
-          <option value="NO">Norvège (NO)</option>
-          <option value="NZ">Nouvelle-Zélande (NZ)</option>
-          <option value="RS">Serbie (RS)</option>
-          <option value="TR">Turquie (TR)</option>
-          <option value="UA">Ukraine (UA)</option>
-          <option value="US">États-Unis (US)</option>
-        </select>
-      </div>
-      <div class="search_div">
-        <button onclick="applyFilters()">Rechercher</button>
-      </div>
-      <p id="filter-results-count" class="finded_person">
-        Personnes trouvées : 0
-      </p>
-    </div>
-    <div id="users-container"></div>
+    <div id="users-container" class="users_container"></div>
     <script src="script.js"></script>
   </body>
 </html>

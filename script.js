@@ -41,13 +41,20 @@ function displayUsers(newUsers) {
     userDiv.className = "user-card";
     userDiv.id = `user-${index}`;
     userDiv.innerHTML = `
+    <div class="imgbox">
         <img src="${user.picture.large}" alt="Profile Picture of ${
       user.name.first
-    }">
-        <h2>${user.name.first} ${user.name.last}</h2>
-        <p>Email: ${user.email}</p>
-        <p>Date of Birth: ${new Date(user.dob.date).toDateString()}</p>
-        <button onclick="deleteUserCard('user-${index}')">Delete</button>
+    }"></div>
+        <h2 class="name"><span class="my_name_is">Hi, my name is <br/></span>${user.name.first} ${user.name.last}</h2>
+        <div class="emojis">
+          <img src="" alt="name_logo" />
+          <img src="" alt="email_logo" />
+          <img src="" alt="calendar_logo" />
+          <img src="" alt="maps_logo" />
+          <img src="" alt="phone_logo" />
+          <img src="" alt="lock_logo" />
+        </div>
+        <button class="delete_button" onclick="deleteUserCard('user-${index}')">Delete this user</button>
       `;
     userDiv.setAttribute("data-gender", user.gender);
     userDiv.setAttribute("data-nationality", user.nat);

@@ -1,0 +1,21 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 59" width="68" height="59"><symbol id="image-75290fee299f2cfe71020d7a42775b631eafa230"><image width="100%" height="100%" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAnCAYAAABJ0cukAAAAAXNSR0IArs4c6QAABAlJREFUWEftmAlP6lAQhQdRcMUNd3GJ6P//Pa5BxV02wQUXzDd5Y276Cq20Kb4XJ2lqpbedM3PmzNymOp1OR/5hS/0CGHD2Ys3Ax8eH1Ot1aTab8vLyIlwPDQ1JNpuVyclJmZ6e1us4LTYADw8PcnNzI+/v7139S6fTsrCwILlcLjYMsQCoVCpyd3enTo2Pj2ukOeMwgJ6enqRWq8nj46Pek8/nZW5uLhYQkQEQ+cvLS0mlUhrdmZmZro5BL7KE8K2srMjU1FRkEJEAwPGTkxON8uLi4pfz7XZbGo2GvL6+ysjIiFImk8mos2QCEGRne3s7ck1EAmDOjI2NSaFQUAeJMnQiEzgNGP43Pz+v1MLOzs6UVi7oflMRCcD5+bny2uiA8pTLZQVD5M3IBE6vrq7K6OioGO2ok/X19X5913WRABwdHSl9dnZ2lBJQA8dnZ2f/cqparSqliDprWMsa1kaxSAD29/f13Xt7e3omI6gLkfUamUKtLOIHBwdazLa2XxDfBsBLURzs8PBQm1WxWNRiRI0mJiZ8dZ6ibrVaSjfWsJY1rHWN356fn7VGqJsgCw2ACFK0FKx11FKppB13Y2Pji9tEmWsDiQOApgagFtKJc1zToTc3N/V3nn9/f6/Ps/kyTHYCAeA0B2qCEeHl5WXl7/X1tSqM25jIAhynJ5gK3d7e6v1EH7PGRyCWlpbk7e1Nn0WGAB4rAOMqxckLOXAGY+a5uLjQ6BN1MwoWYDg2PDyslHI77+npqdIEVWJGIjg4T0Z4FvRya6sXjQIzYACM516+Hh8fK6dpSq50dnspSkTzg/8okEs1W+MVh1gA7O7u+r7MaESEoVKQ0eSgkNHH7/5EAUAFKBFmNHBHDyv8gQPAAeM0hevXxNzaoKDd0eNHAKAAGSEo2K2tLd8BzY3+2tqaqlk3S5RC5oRlgebj14CM+17F+hEZQC5tYENVyIKrSMgkTQ99t0GPbP2IDOAUYwKqcnV1pX8TZRy1pkTXpdjpBzRB7um1rUyUQgBgiMNhOjCRJiOMDBQ1Rcv47NYH9/caoxMHwGhsQxmRxkGK1oymhcNkBqPTeoc4l06JA6Bbu4MXAxkNjjPjAfMOZ7fT9hrUBg4gqBvj4C+AP1EKPcz5zUK2R2AqZRdG4TJd2rTaSyYHlgGKExl09wiuo0gnYADSDcxAKMTwxYyPJJrCII3ov+2yyARZsQ2JC4Z77LuoFwCyyzp2ahy2eYplR2b7ATfKRJjvPkTYa/QCgAAUZ/zAoFAokzlMF3cNoEhumE8uoWsAXtM9ibh9ZQtSm25gvOt4Ng4TGCZVJNdvo+P3vkAAjAE4zhH2oX4vcsFAERy1w+0RQUHx/h4I4LsPTPr+XwBJR/y/o9AnOPa/uce8NAcAAAAASUVORK5CYII="></image></symbol>
+  <!-- svg-source:excalidraw -->
+  
+  <defs>
+    <style class="style-fonts">
+      @font-face {
+        font-family: "Virgil";
+        src: url("https://excalidraw.com/Virgil.woff2");
+      }
+      @font-face {
+        font-family: "Cascadia";
+        src: url("https://excalidraw.com/Cascadia.woff2");
+      }
+      @font-face {
+        font-family: "Assistant";
+        src: url("https://excalidraw.com/Assistant-Regular.woff2");
+      }
+    </style>
+    
+  </defs>
+  <rect x="0" y="0" width="68" height="59" fill="#ffffff"></rect><g transform="translate(10 10) rotate(0 24 19.5)"><use href="#image-75290fee299f2cfe71020d7a42775b631eafa230" width="48" height="39" opacity="1"></use></g></svg>

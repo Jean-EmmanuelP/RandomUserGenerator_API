@@ -1,0 +1,2 @@
+<p>Email: ${user.email}</p>
+        <p>Date of Birth: ${new Date(user.dob.date).toDateString()}</p>
