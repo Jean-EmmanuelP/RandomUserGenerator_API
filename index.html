@@ -6,42 +6,329 @@
   </head>
   <body>
     <div class="logo">
-      <img src="/svg/logo/logo.svg" alt="logo">
+      <img src="/svg/logo/logo.svg" alt="logo" />
     </div>
-      <button onclick="switchLanguage('en')">
-        eng
-      </button>
-      <button onclick="switchLanguage('fr')">
-        fr
-      </button>
-      <div class="first">
-        <h1 data-lang data-lang-en="Random User Generator" data-lang-fr="Générateur d'Utilisateurs Aléatoires">Générateur d'Utilisateurs Aléatoires</h1>
-        <header>
-          <div class="input_div">
-            <label data-lang data-lang-en="Enter the number of users you want to generate:" data-lang-fr="Entrez le nombre d'utilisateur que vous souhaitez générer:">Entrez le nombre d'utilisateur que vous souhaitez générer:</label>
-            <input
-              type="number"
-              id="user-count"
-              placeholder="Enter number of users"
-              min="1"
-              value="10"
-            />
-          </div>
-          <div class="loading_users">
-            <button data-lang data-lang-en="👤 Load More Users" data-lang-fr="👤 Charger plus d'utilisateurs" onclick="fetchUsers()">👤 Charger plus d'utilisateurs</button>
-            <button data-lang data-lang-en="♂️ Male Users" data-lang-fr="♂️ Utilisateurs" onclick="fetchUsers('male')">♂️ Utilisateurs</button>
-            <button data-lang data-lang-en="♀️ Female Users" data-lang-fr="♀️ Utilisatrices" onclick="fetchUsers('female')">♀️ Utilisatrices</button>
-            <button data-lang data-lang-en="🧹 Clear All Users" data-lang-fr="🧹 Effacer tous les utilisateurs" onclick="clearUsers()">🧹 Effacer tous les utilisateurs</button>
-          </div>
-        </header>
-        <div class="info">
-          <h4 data-lang data-lang-en="Statistics" data-lang-fr="Statistiques">Statistiques</h4>
-          <div>
-            <p id="user-count-display" data-lang data-lang-en="Number of users: 0" data-lang-fr="Nb d'utilisateurs : 0">Nb d'utilisateurs : 0</p>
-            <p id="male-count-display" data-lang data-lang-en="Number of men: 0" data-lang-fr="Nb d'hommes : 0">Nb d'hommes : 0</p>
-            <p id="female-count-display" data-lang data-lang-en="Number of women: 0" data-lang-fr="Nb de femmes : 0">Nb de femmes : 0</p>
-          </div>
+    <button class="eng" onclick="switchLanguage('en')">eng</button>
+    <button class="fr" onclick="switchLanguage('fr')">fr</button>
+    <div class="first">
+      <h1
+        data-lang
+        data-lang-en="Random User Generator"
+        data-lang-fr="Générateur d'Utilisateurs Aléatoires"
+      >
+        Générateur d'Utilisateurs Aléatoires
+      </h1>
+      <header>
+        <div class="input_div">
+          <label
+            data-lang
+            data-lang-en="Enter the number of users you want to generate:"
+            data-lang-fr="Entrez le nombre d'utilisateur que vous souhaitez générer:"
+            >Entrez le nombre d'utilisateur que vous souhaitez générer:</label
+          >
+          <input
+            type="number"
+            id="user-count"
+            placeholder="Enter number of users"
+            min="1"
+            value="10"
+          />
         </div>
+        <div class="loading_users">
+          <button
+            data-lang
+            data-lang-en="👤 Load More Users"
+            data-lang-fr="👤 Charger plus d'utilisateurs"
+            onclick="fetchUsers()"
+          >
+            👤 Charger plus d'utilisateurs
+          </button>
+          <button
+            data-lang
+            data-lang-en="♂️ Male Users"
+            data-lang-fr="♂️ Utilisateurs"
+            onclick="fetchUsers('male')"
+          >
+            ♂️ Utilisateurs
+          </button>
+          <button
+            data-lang
+            data-lang-en="♀️ Female Users"
+            data-lang-fr="♀️ Utilisatrices"
+            onclick="fetchUsers('female')"
+          >
+            ♀️ Utilisatrices
+          </button>
+          <button
+            data-lang
+            data-lang-en="🧹 Clear All Users"
+            data-lang-fr="🧹 Effacer tous les utilisateurs"
+            onclick="clearUsers()"
+          >
+            🧹 Effacer tous les utilisateurs
+          </button>
+        </div>
+      </header>
+      <div class="info">
+        <h4 data-lang data-lang-en="Statistics" data-lang-fr="Statistiques">
+          Statistiques
+        </h4>
+        <div>
+          <p
+            id="user-count-display"
+            data-lang
+            data-lang-en="Number of users: 0"
+            data-lang-fr="Nb d'utilisateurs : 0"
+          >
+            Nb d'utilisateurs : 0
+          </p>
+          <p
+            id="male-count-display"
+            data-lang
+            data-lang-en="Number of men: 0"
+            data-lang-fr="Nb d'hommes : 0"
+          >
+            Nb d'hommes : 0
+          </p>
+          <p
+            id="female-count-display"
+            data-lang
+            data-lang-en="Number of women: 0"
+            data-lang-fr="Nb de femmes : 0"
+          >
+            Nb de femmes : 0
+          </p>
+        </div>
+      </div>
+      <div class="filter">
+        <div class="filter_selector">
+          <select id="gender-filter">
+            <option
+              data-lang
+              data-lang-en="All Genders"
+              data-lang-fr="Tous les genres"
+              value=""
+            >
+              Tous les genres
+            </option>
+            <option
+              data-lang
+              data-lang-en="Male"
+              data-lang-fr="Hommes"
+              value="male"
+            >
+              Hommes
+            </option>
+            <option
+              data-lang
+              data-lang-en="Female"
+              data-lang-fr="Femmes"
+              value="female"
+            >
+              Femmes
+            </option>
+          </select>
+          <select id="nationality-filter" onchange="filterUsersByNationality()">
+            <option
+              data-lang
+              data-lang-en="All Nationalities"
+              data-lang-fr="Toutes les nationalités"
+              value=""
+            >
+              Toutes les nationalités
+            </option>
+            <option
+              data-lang
+              data-lang-en="Australia (AU)"
+              data-lang-fr="Australie (AU)"
+              value="AU"
+            >
+              Australie (AU)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Brazil (BR)"
+              data-lang-fr="Brésil (BR)"
+              value="BR"
+            >
+              Brésil (BR)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Canada (CA)"
+              data-lang-fr="Canada (CA)"
+              value="CA"
+            >
+              Canada (CA)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Switzerland (CH)"
+              data-lang-fr="Suisse (CH)"
+              value="CH"
+            >
+              Suisse (CH)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Germany (DE)"
+              data-lang-fr="Allemagne (DE)"
+              value="DE"
+            >
+              Allemagne (DE)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Denmark (DK)"
+              data-lang-fr="Danemark (DK)"
+              value="DK"
+            >
+              Danemark (DK)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Spain (ES)"
+              data-lang-fr="Espagne (ES)"
+              value="ES"
+            >
+              Espagne (ES)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Finland (FI)"
+              data-lang-fr="Finlande (FI)"
+              value="FI"
+            >
+              Finlande (FI)
+            </option>
+            <option
+              data-lang
+              data-lang-en="France (FR)"
+              data-lang-fr="France (FR)"
+              value="FR"
+            >
+              France (FR)
+            </option>
+            <option
+              data-lang
+              data-lang-en="United Kingdom (GB)"
+              data-lang-fr="Royaume-Uni (GB)"
+              value="GB"
+            >
+              Royaume-Uni (GB)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Ireland (IE)"
+              data-lang-fr="Irlande (IE)"
+              value="IE"
+            >
+              Irlande (IE)
+            </option>
+            <option
+              data-lang
+              data-lang-en="India (IN)"
+              data-lang-fr="Inde (IN)"
+              value="IN"
+            >
+              Inde (IN)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Iran (IR)"
+              data-lang-fr="Iran (IR)"
+              value="IR"
+            >
+              Iran (IR)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Mexico (MX)"
+              data-lang-fr="Mexique (MX)"
+              value="MX"
+            >
+              Mexique (MX)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Netherlands (NL)"
+              data-lang-fr="Pays-Bas (NL)"
+              value="NL"
+            >
+              Pays-Bas (NL)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Norway (NO)"
+              data-lang-fr="Norvège (NO)"
+              value="NO"
+            >
+              Norvège (NO)
+            </option>
+            <option
+              data-lang
+              data-lang-en="New Zealand (NZ)"
+              data-lang-fr="Nouvelle-Zélande (NZ)"
+              value="NZ"
+            >
+              Nouvelle-Zélande (NZ)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Serbia (RS)"
+              data-lang-fr="Serbie (RS)"
+              value="RS"
+            >
+              Serbie (RS)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Turkey (TR)"
+              data-lang-fr="Turquie (TR)"
+              value="TR"
+            >
+              Turquie (TR)
+            </option>
+            <option
+              data-lang
+              data-lang-en="Ukraine (UA)"
+              data-lang-fr="Ukraine (UA)"
+              value="UA"
+            >
+              Ukraine (UA)
+            </option>
+            <option
+              data-lang
+              data-lang-en="United States (US)"
+              data-lang-fr="États-Unis (US)"
+              value="US"
+            >
+              États-Unis (US)
+            </option>
+          </select>
+        </div>
+        <div class="search_div">
+          <button
+            data-lang
+            data-lang-en="Search"
+            data-lang-fr="Rechercher"
+            onclick="applyFilters()"
+          >
+            Rechercher
+          </button>
+        </div>
+        <p
+          id="filter-results-count"
+          class="finded_person"
+          style="display: none"
+          data-lang
+          data-lang-en="People found: 0"
+          data-lang-fr="Personnes trouvées : 0"
+        >
+          Personnes trouvées : 0
+        </p>
+      </div>
+    </div>
     <div id="users-container" class="users_container"></div>
     <script src="script.js"></script>
   </body>

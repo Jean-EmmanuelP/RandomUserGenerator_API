@@ -1,3 +1,5 @@
+var currentLanguage = 'fr';
+
 function fetchUsers(gender = "") {
   console.log(`teeee`);
   const userCount = document.getElementById("user-count").value || 1;
@@ -13,7 +15,6 @@ function displayUsers(newUsers) {
   const usersContainer = document.getElementById("users-container");
 
   let existingUsers = Array.from(usersContainer.children).map((child) => {
-    // Added error handling for each property
     return {
       picture: {
         large: child.querySelector("img") ? child.querySelector("img").src : "",
@@ -189,15 +190,39 @@ function updateUserCounts() {
     if (gender === "female") femaleCount++;
   });
 
-  document.getElementById(
-    "user-count-display"
-  ).textContent = `Nb d'utilisateurs : ${totalUsers}`;
-  document.getElementById(
-    "male-count-display"
-  ).textContent = `Nb d'hommes : ${maleCount}`;
-  document.getElementById(
-    "female-count-display"
-  ).textContent = `Nb de femmes : ${femaleCount}`;
+  console.log("Current language:", currentLanguage);
+
+  updateTextContent(
+    "user-count-display",
+    totalUsers,
+    "Number of users:",
+    "Nb d'utilisateurs :",
+    currentLanguage
+  );
+  updateTextContent(
+    "male-count-display",
+    maleCount,
+    "Number of men:",
+    "Nb d'hommes :",
+    currentLanguage
+  );
+  updateTextContent(
+    "female-count-display",
+    femaleCount,
+    "Number of women:",
+    "Nb de femmes :",
+    currentLanguage
+  );
+}
+
+function updateTextContent(elementId, count, textEn, textFr, lang) {
+  var element = document.getElementById(elementId);
+
+  if (lang === "en") {
+    element.textContent = `${textEn} ${count}`;
+  } else {
+    element.textContent = `${textFr} ${count}`;
+  }
 }
 
 function applyFilters() {
@@ -243,10 +268,11 @@ function deleteUserCard(cardId) {
 }
 
 function switchLanguage(lang) {
-  var elements = document.querySelectorAll('[data-lang]');
+  var elements = document.querySelectorAll("[data-lang]");
+  currentLanguage = lang;
 
-  elements.forEach(function(el) {
-      el.textContent = el.getAttribute('data-lang-' + lang);
+  elements.forEach(function (el) {
+    el.textContent = el.getAttribute("data-lang-" + lang);
   });
 }
 
