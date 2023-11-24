@@ -347,36 +347,6 @@ button:hover {
   position: relative;
 }
 
-.person_logo.active:before {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.email_logo.active:before {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.calendar_logo.active:before {
-  opacity: 1;
-  transform: translateY(-10px);
-}
-
-.maps_logo.active:before {
-  opacity: 1;
-  transform: translateY(-10px);
-}
-
-.phone_logo.active:before {
-  opacity: 1;
-  transform: translateY(-10px);
-}
-
-.lock_logo.active:before {
-  opacity: 1;
-  transform: translateY(-5px);
-}
-
 .person_logo:before {
   position: absolute;
   content: url(/svg/hover/hover_person.svg);
