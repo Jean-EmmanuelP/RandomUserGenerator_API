@@ -310,25 +310,4 @@ function clearUsers() {
   updateUserCounts();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Sélectionnez tous les éléments qui doivent avoir l'effet de survol
-  const hoverableElements = document.querySelectorAll('.emojis div');
-
-  // Fonction pour gérer l'ajout et la suppression de la classe 'active'
-  function handleHover(event) {
-    console.log(`hello`)
-    // Retirez la classe 'active' de tous les éléments
-    hoverableElements.forEach(function(elem) {
-      elem.classList.remove('active');
-    });
-    // Ajoutez la classe 'active' à l'élément survolé
-    event.currentTarget.classList.add('active');
-  }
-
-  // Ajoutez un écouteur d'événements pour chaque élément
-  hoverableElements.forEach(function(elem) {
-    elem.addEventListener('mouseover', handleHover);
-  });
-});
-
 fetchUsers(10);

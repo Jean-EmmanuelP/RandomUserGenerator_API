@@ -359,6 +359,7 @@ button:hover {
   transition: 0.5s;
 }
 
+.person_logo.active:before,
 .person_logo:hover:before {
   opacity: 1;
   transform: translateY(0);
