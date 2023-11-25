@@ -104,6 +104,7 @@ header {
 }
 
 button {
+  cursor: pointer;
   border: none;
   transition: 0.2s;
   padding: 5px 10px;
