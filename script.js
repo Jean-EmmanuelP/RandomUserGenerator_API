@@ -4,7 +4,6 @@ function fetchUsers(gender = "") {
   const userCount = document.getElementById("user-count").value || 1;
   const usersContainer = document.getElementById("users-container");
 
-  // Afficher un avertissement pour un grand nombre d'utilisateurs
   if (userCount > 1000) {
     const proceed = confirm(
       "Charger un grand nombre d'utilisateurs peut prendre du temps. Voulez-vous continuer ?"
@@ -201,7 +200,6 @@ function getExistingUsers(usersContainer) {
 }
 
 function extractAddressFromChild(child) {
-  // Supposons que l'adresse soit stockée dans un format spécifique dans un élément p
   const addressElement = child.querySelector(".address");
   return addressElement ? addressElement.textContent : "";
 }
