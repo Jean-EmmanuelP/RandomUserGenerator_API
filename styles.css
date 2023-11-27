@@ -3,7 +3,7 @@
   padding: none;
   margin: none;
   scrollbar-width: thin;
-  scrollbar-color: #222222 #FAFAFA;
+  scrollbar-color: #222222 #fafafa;
 }
 
 *::-webkit-scrollbar {
@@ -11,7 +11,7 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: #FAFAFA;
+  background: #fafafa;
   border-radius: 50px;
 }
 
@@ -20,7 +20,7 @@
   border-radius: 20px;
   border-radius: 50px;
 
-  border: 3px solid #FAFAFA;
+  border: 3px solid #fafafa;
 }
 
 body {
@@ -145,9 +145,17 @@ select {
   padding: 5px 10px;
 }
 
+#errorMessage {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .input_div {
   width: 90%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 8px;
@@ -160,6 +168,7 @@ select {
 }
 
 input {
+  width: 50%;
   margin-top: 2px;
   display: flex;
   text-align: center;
@@ -344,135 +353,86 @@ button:hover {
   border: 5px solid white;
 }
 
-.person_logo {
+.person_logo,
+.email_logo,
+.calendar_logo,
+.maps_logo,
+.phone_logo,
+.lock_logo {
   position: relative;
+}
+
+.person_logo:before,
+.email_logo:before,
+.calendar_logo:before,
+.maps_logo:before,
+.phone_logo:before,
+.lock_logo:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.5s;
 }
 
 .person_logo:before {
-  position: absolute;
   content: url(/svg/hover/hover_person.svg);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   transform: translateY(20%);
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.person_logo.active:before,
-.person_logo:hover:before {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.email_logo {
-  position: relative;
 }
 
 .email_logo:before {
-  position: absolute;
   content: url(/svg/hover/hover_mail.svg);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   transform: translateY(20%);
-  opacity: 0;
-  transition: 0.5s;
 }
 
-.email_logo:hover:before {
+.calendar_logo:before {
+  content: url(/svg/hover/hover_calendar.svg);
+  transform: translateY(20%);
+}
+
+.maps_logo:before {
+  content: url(/svg/hover/hover_maps.svg);
+  transform: translateY(20%);
+}
+
+.phone_logo:before {
+  content: url(/svg/hover/hover_phone.svg);
+  transform: translateY(20%);
+}
+
+.lock_logo:before {
+  content: url(/svg/hover/hover_lock.svg);
+  transform: translateY(20%);
+}
+
+.person_logo.active:before,
+.person_logo:hover:before,
+.email_logo.active:before,
+.email_logo:hover:before,
+.calendar_logo.active:before,
+.calendar_logo:hover:before,
+.maps_logo.active:before,
+.maps_logo:hover:before,
+.phone_logo.active:before,
+.phone_logo:hover:before,
+.lock_logo.active:before,
+.lock_logo:hover:before {
   opacity: 1;
   transform: translateY(0);
 }
 
-.calendar_logo {
+.loading,
+.error {
+  color: black;
+  font-size: large;
   position: relative;
-  transform: translateY(4px);
-}
-
-.calendar_logo:before {
-  position: absolute;
-  content: url(/svg/hover/hover_calendar.svg);
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  transform: translateY(20%);
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.calendar_logo:hover:before {
-  opacity: 1;
-  transform: translateY(-10px);
-}
-
-.maps_logo {
-  position: relative;
-  transform: translateY(4px);
-}
-
-.maps_logo:before {
-  position: absolute;
-  content: url(/svg/hover/hover_maps.svg);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(20%);
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.maps_logo:hover:before {
-  opacity: 1;
-  transform: translateY(-10px);
-}
-
-.phone_logo {
-  position: relative;
-  transform: translateY(1px);
-}
-
-.phone_logo:before {
-  position: absolute;
-  content: url(/svg/hover/hover_phone.svg);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(20%);
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.phone_logo:hover:before {
-  opacity: 1;
-  transform: translateY(-10px);
-}
-
-.lock_logo {
-  position: relative;
-  transform: translateY(-5px);
-}
-
-.lock_logo:before {
-  position: absolute;
-  content: url(/svg/hover/hover_lock.svg);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(20%);
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.lock_logo:hover:before {
-  opacity: 1;
-  transform: translateY(-5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes fadeIn {
@@ -497,10 +457,17 @@ button:hover {
   .loading_users button {
     font-size: 14px;
   }
+  #errorMessage {
+    top: 35%;
+  }
 }
 
 @media screen and (max-width: 900px) {
   h1 {
+    font-size: 10px;
+  }
+  #errorMessage {
+    top: 30%;
     font-size: 10px;
   }
   .logo {
@@ -530,6 +497,7 @@ button:hover {
   .fr {
     left: 40px;
   }
+
   .emojis {
     width: 100%;
     height: 80px;

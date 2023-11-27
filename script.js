@@ -1,8 +1,21 @@
 var currentLanguage = "fr";
 
 function fetchUsers(gender = "") {
-  console.log(`teeee`);
   const userCount = document.getElementById("user-count").value || 1;
+  const usersContainer = document.getElementById("users-container");
+
+  // Afficher un avertissement pour un grand nombre d'utilisateurs
+  if (userCount > 1000) {
+    const proceed = confirm(
+      "Charger un grand nombre d'utilisateurs peut prendre du temps. Voulez-vous continuer ?"
+    );
+    if (!proceed) return;
+  }
+  if (userCount > 1000) {
+    usersContainer.innerHTML =
+      '<div class="loading">Chargement en cours...</div>';
+  }
+
   fetch(`https://randomuser.me/api/?results=${userCount}&gender=${gender}`)
     .then((response) => response.json())
     .then((data) => {
@@ -14,7 +27,140 @@ function fetchUsers(gender = "") {
 function displayUsers(newUsers) {
   const usersContainer = document.getElementById("users-container");
 
-  let existingUsers = Array.from(usersContainer.children).map((child) => {
+  let allUsers = getExistingUsers(usersContainer).concat(newUsers);
+
+  allUsers.sort((a, b) => new Date(a.dob.date) - new Date(b.dob.date));
+
+  const fragment = document.createDocumentFragment();
+  allUsers.forEach((user, index) => {
+    const userDiv = createUserDiv(user, index);
+    fragment.appendChild(userDiv);
+  });
+
+  usersContainer.innerHTML = "";
+  usersContainer.appendChild(fragment);
+  updateUserCounts();
+}
+
+function createUserDiv(user, index) {
+  const userDiv = document.createElement("div");
+  userDiv.className = "user-card";
+  userDiv.id = `user-${index}`;
+  userDiv.setAttribute("data-gender", user.gender || "unknown");
+  userDiv.setAttribute("data-nationality", user.nat || "unknown");
+
+  userDiv.innerHTML = `
+    <div class="imgbox">
+      <img src="${user.picture.large}" alt="Profile Picture of ${user.name.first} ${user.name.last}">
+    </div>
+    <h2 class="name" id="name-${index}"><span class="label">Hi, my name is</span><br/><span class="value">${user.name.first} ${user.name.last}</span></h2>
+    <div class="emojis" id="emojis-${index}">
+      <div class="person_logo">
+        <img src="/svg/person.svg" alt="name_logo" />
+      </div>
+      <div class="email_logo">
+        <img src="/svg/mail.svg" alt="email_logo" />
+      </div>
+      <div class="calendar_logo">
+        <img src="/svg/calendar.svg" alt="calendar_logo" />
+      </div>
+      <div class="maps_logo">
+        <img src="/svg/maps.svg" alt="maps_logo" />
+      </div>
+      <div class="phone_logo">
+        <img src="/svg/phone.svg" alt="phone_logo" />
+      </div>
+      <div class="lock_logo">
+        <img src="/svg/lock.svg" alt="lock_logo" />
+      </div>
+    </div>
+    <button class="delete_button" onclick="deleteUserCard('user-${index}')" data-lang data-lang-en="Delete this user" data-lang-fr="Supprimer cet utilisateur" >Supprimer cet utilisateur</button>
+  `;
+
+  addIconEventListeners(userDiv, user, index);
+  const firstIcon = userDiv.querySelector(".person_logo");
+  if (firstIcon) {
+    firstIcon.classList.add("active");
+  }
+  return userDiv;
+}
+
+function addIconEventListeners(userDiv, user, index) {
+  const nameLabel = userDiv.querySelector(`#name-${index} .label`);
+  const nameValue = userDiv.querySelector(`#name-${index} .value`);
+
+  const icons = userDiv.querySelectorAll(".emojis div");
+
+  function activateIcon(icon) {
+    icons.forEach((ic) => ic.classList.remove("active"));
+    icon.classList.add("active");
+  }
+
+  userDiv
+    .querySelector(".person_logo")
+    .addEventListener("mouseover", function () {
+      activateIcon(this);
+      updateLabelText(nameLabel, "Hi, my name is", "Salut, je suis");
+      nameValue.textContent = `${user.name.first} ${user.name.last}`;
+    });
+
+  userDiv
+    .querySelector(".email_logo")
+    .addEventListener("mouseover", function () {
+      activateIcon(this);
+      updateLabelText(
+        nameLabel,
+        "My email address is",
+        "Mon adresse email est"
+      );
+      nameValue.textContent = user.email;
+    });
+
+  userDiv
+    .querySelector(".calendar_logo")
+    .addEventListener("mouseover", function () {
+      activateIcon(this);
+      updateLabelText(nameLabel, "My birthday is", "Je suis né le");
+      nameValue.textContent = new Date(user.dob.date).toLocaleDateString(
+        currentLanguage === "fr" ? "fr-FR" : "en-US"
+      );
+    });
+
+  userDiv
+    .querySelector(".maps_logo")
+    .addEventListener("mouseover", function () {
+      activateIcon(this);
+      updateLabelText(nameLabel, "My address is", "Mon adresse est");
+      nameValue.textContent = `${user.location.street.number} ${user.location.street.name}`;
+    });
+
+  userDiv
+    .querySelector(".phone_logo")
+    .addEventListener("mouseover", function () {
+      activateIcon(this);
+      updateLabelText(
+        nameLabel,
+        "My phone number is",
+        "Mon numéro de téléphone est"
+      );
+      nameValue.textContent = user.phone;
+    });
+
+  userDiv
+    .querySelector(".lock_logo")
+    .addEventListener("mouseover", function () {
+      activateIcon(this);
+      updateLabelText(nameLabel, "My password is", "Mon mot de passe est");
+      nameValue.textContent = `${user.login.password}`;
+    });
+}
+
+function updateLabelText(label, textEn, textFr) {
+  label.textContent = currentLanguage !== "fr" ? textEn : textFr;
+}
+
+function getExistingUsers(usersContainer) {
+  return Array.from(usersContainer.children).map((child) => {
     return {
       picture: {
         large: child.querySelector("img") ? child.querySelector("img").src : "",
@@ -33,9 +179,7 @@ function displayUsers(newUsers) {
           : "",
       gender: child.getAttribute("data-gender") || "",
       nat: child.getAttribute("data-nationality") || "",
-      address: child.location
-        ? `${child.location.street.number} ${child.location.street.name}, ${child.location.city}, ${child.location.state}, ${child.location.country}, ${child.location.postcode}`
-        : "",
+      address: extractAddressFromChild(child),
       phone: child.querySelector(".phone")
         ? child.querySelector(".phone").textContent.replace("Phone: ", "")
         : "",
@@ -54,146 +198,12 @@ function displayUsers(newUsers) {
       },
     };
   });
+}
 
-  let allUsers = existingUsers.concat(newUsers);
-
-  allUsers.sort((a, b) => new Date(a.dob.date) - new Date(b.dob.date));
-
-  usersContainer.innerHTML = "";
-  allUsers.forEach((user, index) => {
-    const userDiv = document.createElement("div");
-    if (!userDiv) {
-      console.error("Failed to create a div element for the user card.");
-      return;
-    }
-    userDiv.className = "user-card";
-    userDiv.id = `user-${index}`;
-    userDiv.innerHTML = `
-    <div class="imgbox">
-        <img src="${user.picture.large}" alt="Profile Picture of ${user.name.first}"></div>
-        <h2 class="name" id="name-${index}"><span class="label">Hi, my name is</span><br/><span class="value">${user.name.first} ${user.name.last}</span></h2>
-        <div class="emojis" id="emojis-${index}">
-          <div class="person_logo">
-            <img src="/svg/person.svg" alt="name_logo" />
-          </div>
-          <div class="email_logo">
-          <img src="/svg/mail.svg" alt="email_logo" />
-          </div>
-          <div class="calendar_logo">
-            <img src="/svg/calendar.svg" alt="calendar_logo" />
-            </div>
-          <div class="maps_logo">
-            <img src="/svg/maps.svg" alt="maps_logo" />
-            </div>
-          <div class="phone_logo">
-          <img src="/svg/phone.svg" alt="phone_logo" />
-          </div>
-          <div class="lock_logo">
-            <img src="/svg/lock.svg" alt="lock_logo" />
-          </div>
-        </div>
-        <button class="delete_button" onclick="deleteUserCard('user-${index}')" data-lang data-lang-en="Delete this user"
-        data-lang-fr="Supprimer cet utilisateur" >Supprimer cet utilisateur</button>
-      `;
-    if (userDiv) {
-      userDiv.setAttribute("data-gender", user.gender || "unknown");
-      userDiv.setAttribute("data-nationality", user.nat || "unknown");
-    }
-    if (newUsers.find((u) => u.id === user.id)) {
-      userDiv.style.animation = "fadeIn 0.5s ease-out";
-    }
-
-    usersContainer.appendChild(userDiv);
-  });
-  if (!Array.isArray(allUsers)) {
-    console.error("Invalid input: allUsers is not an array.");
-    return;
-  }
-  allUsers.forEach((user, index) => {
-    const nameLabel = document
-      .getElementById(`name-${index}`)
-      .querySelector(".label");
-    const nameValue = document
-      .getElementById(`name-${index}`)
-      .querySelector(".value");
-    document
-      .getElementById(`emojis-${index}`)
-      .querySelector(".person_logo")
-      .addEventListener("mouseover", () => {
-        if (currentLanguage !== "fr") {
-          nameLabel.textContent = "Hi, my name is";
-        } else {
-          nameLabel.textContent = "Salut, je suis";
-        }
-        nameValue.textContent = `${user.name.first} ${user.name.last}`;
-      });
-
-    document
-      .getElementById(`emojis-${index}`)
-      .querySelector(".email_logo")
-      .addEventListener("mouseover", () => {
-        if (currentLanguage !== "fr") {
-          nameLabel.textContent = "My email address is";
-        } else {
-          nameLabel.textContent = "Mon addresse email est";
-        }
-        nameValue.textContent = `${user.email}`;
-      });
-    document
-      .getElementById(`emojis-${index}`)
-      .querySelector(".calendar_logo")
-      .addEventListener("mouseover", () => {
-        if (currentLanguage !== "fr") {
-          nameLabel.textContent = "My birthday is";
-        } else {
-          nameLabel.textContent = "Je suis né le";
-        }
-        nameValue.textContent = new Date(user.dob.date).toLocaleDateString(
-          "en-US",
-          {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-          }
-        );
-      });
-    document
-      .getElementById(`emojis-${index}`)
-      .querySelector(".maps_logo")
-      .addEventListener("mouseover", () => {
-        if (currentLanguage !== "fr") {
-          nameLabel.textContent = "My address is";
-        } else {
-          nameLabel.textContent = "J'habite au";
-        }
-        nameValue.textContent = `${user.location.street.number} ${user.location.street.name}`;
-      });
-
-    document
-      .getElementById(`emojis-${index}`)
-      .querySelector(".phone_logo")
-      .addEventListener("mouseover", () => {
-        if (currentLanguage !== "fr") {
-          nameLabel.textContent = "My phone number is";
-        } else {
-          nameLabel.textContent = "Mon numéro de téléphone est :";
-        }
-        nameValue.textContent = `${user.phone}`;
-      });
-
-    document
-      .getElementById(`emojis-${index}`)
-      .querySelector(".lock_logo")
-      .addEventListener("mouseover", () => {
-        if (currentLanguage !== "fr") {
-          nameLabel.textContent = "My password is";
-        } else {
-          nameLabel.textContent = "Mon mot de passe est";
-        }
-        nameValue.textContent = `${user.login.password}`;
-      });
-  });
-  updateUserCounts();
+function extractAddressFromChild(child) {
+  // Supposons que l'adresse soit stockée dans un format spécifique dans un élément p
+  const addressElement = child.querySelector(".address");
+  return addressElement ? addressElement.textContent : "";
 }
 
 function toggleStatistics() {
@@ -309,5 +319,23 @@ function clearUsers() {
 
   updateUserCounts();
 }
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowDown") {
+    window.scrollBy(0, 100);
+  } else if (event.key === "ArrowUp") {
+    window.scrollBy(0, -100);
+  }
+});
+
+document.getElementById("user-count").addEventListener("input", function () {
+  var value = parseInt(this.value, 10);
+  var errorMessage = document.getElementById("errorMessage");
+  if (value < 1 || value > 5000) {
+    errorMessage.style.display = "flex";
+  } else {
+    errorMessage.style.display = "none";
+  }
+});
 
 fetchUsers(10);
