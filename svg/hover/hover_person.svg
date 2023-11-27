@@ -18,4 +18,4 @@
     </style>
     
   </defs>
-  <rect x="0" y="0" width="71" height="75" fill="#ffffff"></rect><g transform="translate(10 10) rotate(0 25.5 27.5)"><use href="#image-efa1195d9ff6778435c81a558337f95a4a873577" width="51" height="55" opacity="1"></use></g></svg>
+  <rect rx="50%" ry="50%" x="0" y="0" width="71" height="75" fill="#ffffff"></rect><g transform="translate(10 10) rotate(0 25.5 27.5)"><use href="#image-efa1195d9ff6778435c81a558337f95a4a873577" width="51" height="55" opacity="1"></use></g></svg>

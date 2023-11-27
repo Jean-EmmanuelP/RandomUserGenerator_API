@@ -3,7 +3,9 @@ var currentLanguage = "fr";
 function fetchUsers(gender = "") {
   const userCount = document.getElementById("user-count").value || 1;
   const usersContainer = document.getElementById("users-container");
-
+  if (userCount > 5000) {
+    return;
+  }
   if (userCount > 1000) {
     const proceed = confirm(
       "Charger un grand nombre d'utilisateurs peut prendre du temps. Voulez-vous continuer ?"
