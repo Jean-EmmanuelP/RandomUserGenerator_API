@@ -1,23 +1,29 @@
-var currentLanguage = "fr";
+const languages = {
+  french: "fr",
+  english: "en",
+};
+
+var currentLanguage = languages.french;
+
+var apiResult = [];
 
 function fetchUsers(gender = "") {
-  const userCount = document.getElementById("user-count").value || 1;
+  const userCount = document.getElementById("user-count").value || 10;
   const usersContainer = document.getElementById("users-container");
   if (userCount > 5000 || userCount < 1) {
-    alert("Le nombre doit être compris entre 1 et 5000")
+    alert("Le nombre doit être compris entre 1 et 5000");
     return;
   }
   if (userCount > 1000) {
     const proceed = confirm(
       "Charger un grand nombre d'utilisateurs peut prendre du temps. Voulez-vous continuer ?"
     );
-    if (!proceed) return;
-  }
-  if (userCount > 1000) {
     usersContainer.innerHTML =
       '<div class="loading">Chargement en cours...</div>';
+    if (!proceed) return;
   }
 
+  //pagination on server side or client side
   fetch(`https://randomuser.me/api/?results=${userCount}&gender=${gender}`)
     .then((response) => response.json())
     .then((data) => {
@@ -29,12 +35,12 @@ function fetchUsers(gender = "") {
 function displayUsers(newUsers) {
   const usersContainer = document.getElementById("users-container");
 
-  let allUsers = getExistingUsers(usersContainer).concat(newUsers);
+  apiResult = apiResult.concat(newUsers);
 
-  allUsers.sort((a, b) => new Date(a.dob.date) - new Date(b.dob.date));
+  apiResult.sort((a, b) => new Date(a.dob.date) - new Date(b.dob.date));
 
   const fragment = document.createDocumentFragment();
-  allUsers.forEach((user, index) => {
+  apiResult.forEach((user, index) => {
     const userDiv = createUserDiv(user, index);
     fragment.appendChild(userDiv);
   });
@@ -161,47 +167,6 @@ function updateLabelText(label, textEn, textFr) {
   label.textContent = currentLanguage !== "fr" ? textEn : textFr;
 }
 
-function getExistingUsers(usersContainer) {
-  return Array.from(usersContainer.children).map((child) => {
-    return {
-      picture: {
-        large: child.querySelector("img") ? child.querySelector("img").src : "",
-      },
-      name: {
-        first: child.querySelector("h2")
-          ? child.querySelector("h2").textContent.split(" ")[0]
-          : "",
-        last: child.querySelector("h2")
-          ? child.querySelector("h2").textContent.split(" ")[1]
-          : "",
-      },
-      email:
-        child.querySelectorAll("p").length > 0
-          ? child.querySelectorAll("p")[0].textContent.replace("Email: ", "")
-          : "",
-      gender: child.getAttribute("data-gender") || "",
-      nat: child.getAttribute("data-nationality") || "",
-      address: extractAddressFromChild(child),
-      phone: child.querySelector(".phone")
-        ? child.querySelector(".phone").textContent.replace("Phone: ", "")
-        : "",
-      password: child.querySelector(".password")
-        ? child.querySelector(".password").textContent.replace("Password: ", "")
-        : "",
-      dob: {
-        date:
-          child.querySelectorAll("p").length > 1
-            ? new Date(
-                child
-                  .querySelectorAll("p")[1]
-                  .textContent.replace("Date of Birth: ", "")
-              )
-            : new Date(),
-      },
-    };
-  });
-}
-
 function extractAddressFromChild(child) {
   const addressElement = child.querySelector(".address");
   return addressElement ? addressElement.textContent : "";
@@ -317,7 +282,7 @@ function switchLanguage(lang) {
 function clearUsers() {
   const usersContainer = document.getElementById("users-container");
   usersContainer.innerHTML = "";
-
+  apiResult = [];
   // updateUserCounts();
 }
 
@@ -339,4 +304,4 @@ document.getElementById("user-count").addEventListener("input", function () {
   }
 });
 
-fetchUsers(10);
+fetchUsers();
