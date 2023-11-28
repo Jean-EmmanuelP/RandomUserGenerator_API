@@ -41,7 +41,7 @@ function displayUsers(newUsers) {
 
   usersContainer.innerHTML = "";
   usersContainer.appendChild(fragment);
-  updateUserCounts();
+  // updateUserCounts();
 }
 
 function createUserDiv(user, index) {
@@ -216,42 +216,42 @@ function toggleStatistics() {
   }
 }
 
-function updateUserCounts() {
-  const usersContainer = document.getElementById("users-container");
-  const totalUsers = usersContainer.children.length;
-  let maleCount = 0,
-    femaleCount = 0;
+// function updateUserCounts() {
+//   const usersContainer = document.getElementById("users-container");
+//   const totalUsers = usersContainer.children.length;
+//   let maleCount = 0,
+//     femaleCount = 0;
 
-  Array.from(usersContainer.children).forEach((child) => {
-    const gender = child.getAttribute("data-gender");
-    if (gender === "male") maleCount++;
-    if (gender === "female") femaleCount++;
-  });
+//   Array.from(usersContainer.children).forEach((child) => {
+//     const gender = child.getAttribute("data-gender");
+//     if (gender === "male") maleCount++;
+//     if (gender === "female") femaleCount++;
+//   });
 
-  console.log("Current language:", currentLanguage);
+//   console.log("Current language:", currentLanguage);
 
-  updateTextContent(
-    "user-count-display",
-    totalUsers,
-    "Number of users:",
-    "Nb d'utilisateurs :",
-    currentLanguage
-  );
-  updateTextContent(
-    "male-count-display",
-    maleCount,
-    "Number of men:",
-    "Nb d'hommes :",
-    currentLanguage
-  );
-  updateTextContent(
-    "female-count-display",
-    femaleCount,
-    "Number of women:",
-    "Nb de femmes :",
-    currentLanguage
-  );
-}
+//   updateTextContent(
+//     "user-count-display",
+//     totalUsers,
+//     "Number of users:",
+//     "Nb d'utilisateurs :",
+//     currentLanguage
+//   );
+//   updateTextContent(
+//     "male-count-display",
+//     maleCount,
+//     "Number of men:",
+//     "Nb d'hommes :",
+//     currentLanguage
+//   );
+//   updateTextContent(
+//     "female-count-display",
+//     femaleCount,
+//     "Number of women:",
+//     "Nb de femmes :",
+//     currentLanguage
+//   );
+// }
 
 function updateTextContent(elementId, count, textEn, textFr, lang) {
   var element = document.getElementById(elementId);
@@ -318,7 +318,7 @@ function clearUsers() {
   const usersContainer = document.getElementById("users-container");
   usersContainer.innerHTML = "";
 
-  updateUserCounts();
+  // updateUserCounts();
 }
 
 document.addEventListener("keydown", function (event) {
