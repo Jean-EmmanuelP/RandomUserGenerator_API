@@ -3,7 +3,8 @@ var currentLanguage = "fr";
 function fetchUsers(gender = "") {
   const userCount = document.getElementById("user-count").value || 1;
   const usersContainer = document.getElementById("users-container");
-  if (userCount > 5000) {
+  if (userCount > 5000 || userCount < 1) {
+    alert("Le nombre doit être compris entre 1 et 5000")
     return;
   }
   if (userCount > 1000) {
